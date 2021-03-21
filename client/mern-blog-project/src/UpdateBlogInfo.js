@@ -54,77 +54,91 @@ export class UpdateBlogInfo extends Component {
   render() {
     return (
       <div>
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+          <div className="container">
+            <Link to="/" className="navbar-brand">
+              Blog
+            </Link>
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className="collapse navbar-collapse" id="navbarNav">
+              <ul className="navbar-nav">
+                <li className="nav-item active">
+                  <Link to="/" className="nav-link">
+                    Home
+                  </Link>
+                </li>
+                <li className="nav-item active">
+                  <Link to="/create-blog" className="nav-link">
+                    Add New Blog
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
         <div className="container">
-          <div className="row">
-            <div className="col-md-8 m-auto">
-              <br />
-              <Link to="/" className="btn btn-outline-warning float-left">
-                Show Blog List
-              </Link>
-            </div>
-            <div className="col-md-8 m-auto">
-              <h1 className="display-4 text-center">Edit Blog</h1>
-              <p className="lead text-center">Update Blog's Info</p>
-            </div>
-          </div>
-
-          <div className="col-md-8 m-auto">
-            <form noValidate onSubmit={this.onHandleSubmit}>
-              <div className="form-group">
-                <label htmlFor="title">Title</label>
-                <input
-                  type="text"
-                  placeholder="Title of the Blog"
-                  name="title"
-                  className="form-control"
-                  value={this.state.title}
-                  onChange={this.onHandleChange}
-                />
-              </div>
-              <br />
-
-              <div className="form-group">
-                <label htmlFor="body">Body</label>
-                <input
-                  type="text"
-                  placeholder="Body"
-                  name="body"
-                  className="form-control"
-                  value={this.state.body}
-                  onChange={this.onHandleChange}
-                />
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="image">Image</label>
-                <input
-                  type="text"
-                  placeholder="Image"
-                  name="image"
-                  className="form-control"
-                  value={this.state.image}
-                  onChange={this.onHandleChange}
-                />
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="created">Date</label>
-                <input
-                  type="text"
-                  placeholder="Date"
-                  name="created"
-                  className="form-control"
-                  value={this.state.created}
-                  onChange={this.onHandleChange}
-                />
-              </div>
+          <h1 className="my-4">Edit {this.state.title}</h1>
+          <form noValidate onSubmit={this.onHandleSubmit}>
+            <div className="form-group">
+              <label htmlFor="title">Title</label>
               <input
-                type="submit"
-                value="Update Blog"
-                className="btn btn-outline-info btn-lg btn-block"
+                type="text"
+                placeholder="Title of the Blog"
+                name="title"
+                className="form-control"
+                value={this.state.title}
+                onChange={this.onHandleChange}
               />
-            </form>
-          </div>
+            </div>
+            <div className="form-group">
+              <label htmlFor="body">Body</label>
+              <textarea
+                name="body"
+                cols="30"
+                rows="10"
+                className="form-control"
+                value={this.state.body}
+                onChange={this.onHandleChange}
+              ></textarea>
+            </div>
+            <div className="form-group">
+              <label htmlFor="image">Image</label>
+              <input
+                type="text"
+                placeholder="Image"
+                name="image"
+                className="form-control"
+                value={this.state.image}
+                onChange={this.onHandleChange}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="created">Date</label>
+              <input
+                type="date"
+                placeholder="Date"
+                name="created"
+                className="form-control"
+                value={this.state.created}
+                onChange={this.onHandleChange}
+              />
+            </div>
+            <input
+              type="submit"
+              value="Edit Blog"
+              className="btn btn-dark my-4"
+            />
+          </form>
         </div>
       </div>
     );

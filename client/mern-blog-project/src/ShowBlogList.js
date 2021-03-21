@@ -28,15 +28,50 @@ export class ShowBlogList extends Component {
     const blogs = this.state.blogs;
     let blogList;
     if (!blogs) {
-      blogList = 'there are no blogs!';
+      blogList = 'There are no blogs!';
     } else {
       blogList = blogs.map((blog, k) => <Blog blog={blog} key={k} />);
     }
     return (
       <div>
-        <h2>Blog List</h2>
-        <Link to="/create-blog">Add New Blog</Link>
-        {blogList}
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+          <div className="container">
+            <Link to="/" className="navbar-brand">
+              Blog
+            </Link>
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className="collapse navbar-collapse" id="navbarNav">
+              <ul className="navbar-nav">
+                <li className="nav-item active">
+                  <Link to="/" className="nav-link">
+                    Home
+                  </Link>
+                </li>
+                <li className="nav-item active">
+                  <Link to="/create-blog" className="nav-link">
+                    Add New Blog
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <div className="container">
+          <h2 className="my-4">BLOG LIST</h2>
+          {blogList}
+          <br />
+          <br />
+        </div>
       </div>
     );
   }

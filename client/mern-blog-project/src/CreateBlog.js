@@ -44,44 +44,88 @@ export class CreateBlog extends Component {
   render() {
     return (
       <div>
-        <Link to="/">Show Blogs</Link>
-        <h1>Add Blog</h1>
-        <p>Create New Blog</p>
-        <form noValidate onSubmit={this.onHandleSubmit}>
-          <label htmlFor="title">Title</label>
-          <input
-            type="text"
-            placeholder="title of blog"
-            name="title"
-            value={this.state.title}
-            onChange={this.onHandleChange}
-          />
-          <label htmlFor="image">Image</label>
-          <input
-            type="text"
-            placeholder="image for blog"
-            name="image"
-            value={this.state.image}
-            onChange={this.onHandleChange}
-          />
-          <label htmlFor="body">Body</label>
-          <input
-            type="text"
-            placeholder="body of blog"
-            name="body"
-            value={this.state.body}
-            onChange={this.onHandleChange}
-          />
-          <label htmlFor="created">Date</label>
-          <input
-            type="date"
-            placeholder="publish date"
-            name="created"
-            value={this.state.created}
-            onChange={this.onHandleChange}
-          />
-          <input type="submit" />
-        </form>
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+          <div className="container">
+            <Link to="/" className="navbar-brand">
+              Blog
+            </Link>
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className="collapse navbar-collapse" id="navbarNav">
+              <ul className="navbar-nav">
+                <li className="nav-item active">
+                  <Link to="/" className="nav-link">
+                    Home
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <div className="container">
+          <h1 className="mt-4">ADD BLOG</h1>
+          <p className="mb-4 lead">Create New Blog</p>
+          <form noValidate onSubmit={this.onHandleSubmit}>
+            <div className="form-group">
+              <label htmlFor="title">Title</label>
+              <input
+                type="text"
+                placeholder="Enter title here"
+                name="title"
+                value={this.state.title}
+                onChange={this.onHandleChange}
+                className="form-control"
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="image">Image</label>
+              <input
+                type="text"
+                placeholder="Enter image URL here"
+                name="image"
+                value={this.state.image}
+                onChange={this.onHandleChange}
+                className="form-control"
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="body">Body</label>
+              <textarea
+                name="body"
+                placeholder="Enter blog body text here"
+                cols="30"
+                rows="10"
+                className="form-control"
+                value={this.state.body}
+                onChange={this.onHandleChange}
+              ></textarea>
+            </div>
+            <div className="form-group">
+              <label htmlFor="created">Date</label>
+              <input
+                className="form-control"
+                type="date"
+                placeholder="Enter publish date here"
+                name="created"
+                value={this.state.created}
+                onChange={this.onHandleChange}
+              />
+            </div>
+            <br />
+            <input type="submit" className="btn btn-dark" />
+          </form>
+          <br />
+          <br />
+        </div>
       </div>
     );
   }

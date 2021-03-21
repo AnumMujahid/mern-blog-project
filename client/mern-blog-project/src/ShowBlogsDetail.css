@@ -1,0 +1,11 @@
+.blog__image {
+  max-width: 80%;
+  object-fit: contain;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.blog__hr {
+  max-width: 30%;
+}
