@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+let cors = require('cors');
 
 mongoose.connect('mongodb://localhost/blog-app', {
   useNewUrlParser: true,
@@ -10,6 +11,7 @@ mongoose.connect('mongodb://localhost/blog-app', {
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors({ origin: true, credentials: true }));
 
 const blogSchema = new mongoose.Schema({
   title: String,
@@ -94,6 +96,6 @@ app.delete('/blogs/:id', function (req, res) {
   });
 });
 
-app.listen(3000, function () {
+app.listen(5000, function () {
   console.log('Server is running...');
 });
